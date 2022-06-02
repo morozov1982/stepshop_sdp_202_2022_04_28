@@ -24,14 +24,16 @@ class Command(BaseCommand):
         products = load_from_json('products')
 
         for category in categories:
-            new_category = ProductCategory(**category.get('fields'))
+            fields = category.get('fields')
+            new_category = ProductCategory(**fields)
             new_category.save()
 
         for product in products:
-            category_pk = product['pk']
+            fields = product.get('fields')
+            category_pk = fields['category']
             _category = ProductCategory.objects.get(pk=category_pk)
-            product['fields']['category'] = _category
-            new_product = Product(**product.get('fields'))
+            fields['category'] = _category
+            new_product = Product(**fields)
             new_product.save()
 
         User.objects.create_superuser('admin', 'admin@stepshop.kz', '123')
