@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/tooplate-main.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     {% block css %}{% endblock %}
 
   </head>
@@ -35,8 +36,9 @@
             <span>
               {% if user.is_authenticated %}
                 {{ user.username }}
+                | <a href="{% url 'auth:logout' %}">Выйти</a>
               {% else %}
-                <a href="/admin/login/">Войти</a>
+                <a href="{% url 'auth:login' %}">Войти</a>
               {% endif %}
             </span>
           </div>
