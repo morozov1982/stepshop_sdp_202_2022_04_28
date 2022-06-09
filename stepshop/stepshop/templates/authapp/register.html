@@ -20,24 +20,31 @@
                     {{ register_form.username }}
                 </p>
                 <p>
-                    <label>Имя:
-                        {{ register_form.first_name }}
-                    </label>
+                    <label for="first_name">Имя:</label>
+                    {{ register_form.first_name }}
+
                 </p>
                 <p>
-                    <label>Пароль:
-                        {{ register_form.password1 }}
-                    </label>
+                    <label for="password1">Пароль:</label>
+                    {{ register_form.password1 }}
+                    {{ register_form.errors.password1 }}
                 </p>
                 <p>
-                    <label>Подтверждение пароля:
-                        {{ register_form.email }}
-                    </label>
+                    <label for="password2">Подтверждение пароля:</label>
+                    {{ register_form.password2 }}
+                    {{ register_form.errors.password2 }}
                 </p>
                 <p>
-                    <label>Возраст:
-                        {{ register_form.age }}
-                    </label>
+                    <label for="email">E-mail:</label>
+                    {{ register_form.email }}
+                    {{ register_form.errors.email }}
+
+                </p>
+                <p>
+                    <label for="age">Возраст:</label>
+                    {{ register_form.age }}
+                    {{ register_form.errors.age }}
+
                 </p>
                 <p>
                     <label>Аватарка:
